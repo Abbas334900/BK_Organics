@@ -1,0 +1,22 @@
+[
+  {
+    "id": "item-1",
+    "question": "Are your products 100% organic?",
+    "answer": "Yes! All products labeled as 'organic' at BK Organics are certified and sourced from trusted partners who adhere to the highest standards of organic farming. We believe in purity you can taste."
+  },
+  {
+    "id": "item-2",
+    "question": "What is your shipping policy?",
+    "answer": "We offer free standard shipping on all orders over $50. Orders are typically processed within 1-2 business days. You'll receive a tracking number via email as soon as your order ships."
+  },
+  {
+    "id": "item-3",
+    "question": "Is your honey raw and unfiltered?",
+    "answer": "Absolutely. Our honey is raw, unfiltered, and unpasteurized to preserve all its natural enzymes, pollen, and health benefits. It's as pure as the bees made it."
+  },
+  {
+    "id": "item-4",
+    "question": "What is your return policy?",
+    "answer": "We stand by our products with a 100% satisfaction guarantee. If you're not completely happy with your purchase, please contact us within 30 days for a full refund or exchange."
+  }
+]

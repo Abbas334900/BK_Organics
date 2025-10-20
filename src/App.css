@@ -1,0 +1,9 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+
+@layer utilities {
+  .gradient-title {
+    @apply bg-gradient-to-r from-gray-800 to-gray-300 text-transparent bg-clip-text;
+  }
+}

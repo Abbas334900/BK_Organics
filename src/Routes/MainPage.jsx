@@ -5,13 +5,14 @@ import Autoplay from "embla-carousel-autoplay"
 import image_Data from '../data/Image_data.json'
 import accordion_data from "../data/Accordian_data.json"
 import CardPage from "../Layout/CardPage"
+import TextType from '@/components/TextType'
 
 const MainPage = () => {
 
 
 
   const plugin = React.useRef(
-    Autoplay({ delay: 800, stopOnInteraction: true })
+    Autoplay({ delay: 1000, stopOnInteraction: true })
   )
 
   return (
@@ -21,7 +22,14 @@ const MainPage = () => {
           Welcome to BK Organics  <span className='flex items-center gap-2 text-2xl font-bold sm:text-4xl lg:text-6xl sm:gap-6'>Pure Simple Natural</span>
         </h1>
         <p className='text-gray-300 sm:mt-4 text-xs sm:text-xl gradient-title'>
-          Explore thousand of job listing or find the perfect candidate
+          <TextType
+            text={["In a world full of artificial, we wanted to bring things back to nature"]}
+            typingSpeed={75}
+            pauseDuration={1500}
+            showCursor={true}
+            cursorCharacter="|"
+          />
+
         </p>
       </section>
 
@@ -30,8 +38,6 @@ const MainPage = () => {
         <Carousel
           plugins={[plugin.current]}
           className="w-full py-10"
-          onMouseEnter={plugin.current.stop}
-          onMouseLeave={plugin.current.reset}
         >
           <CarouselContent className="flex gap-5 sm:gap-20 items-center">
             {
@@ -58,18 +64,18 @@ const MainPage = () => {
             accordion_data.map((item, index) => {
               return (
                 <div>
-                  <AccordionItem key={index} value={index+1}>
-                  <AccordionTrigger>{item.question}</AccordionTrigger>
-                  <AccordionContent>{item.answer}</AccordionContent>
-                </AccordionItem>
+                  <AccordionItem key={index} value={index + 1}>
+                    <AccordionTrigger>{item.question}</AccordionTrigger>
+                    <AccordionContent>{item.answer}</AccordionContent>
+                  </AccordionItem>
                 </div>
               )
             })}
-          </Accordion>
+        </Accordion>
 
 
 
-    </div >
+      </div >
     </>
   )
 }

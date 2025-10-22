@@ -1,9 +1,84 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-
+/* @tailwind base; */
+@tailwind utilities;
+@tailwind utilities;
 
 @layer utilities {
   .gradient-title {
     @apply bg-gradient-to-r from-gray-800 to-gray-300 text-transparent bg-clip-text;
+  }
+timeline-container {
+    @apply flex flex-col sm:flex-row shadow-xl rounded-3xl mb-20 bg-white;
+  }
+
+  /* --- Timeline Columns --- */
+  .timeline-column {
+    /* Each column is full-width on mobile, then 50% on 'sm' and up */
+    @apply w-full sm:w-1/2 p-4 md:p-10;
+  }
+
+  /* --- Reusable Item Parts --- */
+  .timeline-circle {
+    /* Responsive circle size, themed for BK Organics */
+    @apply w-24 h-24 md:w-32 lg:w-40 md:h-32 lg:h-40 bg-gray-700 text-white rounded-full text-center flex justify-center items-center text-xl md:text-2xl font-bold;
+  }
+
+  .timeline-text {
+    /* Text styles, full-width on mobile for readability */
+    @apply w-full sm:w-2/3 text-lg md:text-xl text-gray-700 flex items-center;
+  }
+  
+  .timeline-connector-wrap {
+    /* The wrapper for the connector line, hidden on mobile */
+    @apply hidden sm:flex w-1/3 items-center;
+  }
+
+  .timeline-connector-line {
+    @apply w-full h-0.5 bg-gray-200;
+  }
+
+
+  /* --- Left Column Specifics --- */
+  .timeline-item-left {
+    /* Stacks circle, then text on mobile */
+    @apply flex flex-col;
+  }
+  .timeline-item-left .timeline-circle-wrap {
+    /* Aligns circle left on mobile, right on desktop */
+    @apply flex justify-start sm:justify-end;
+  }
+  .timeline-item-left .timeline-text-wrap {
+    /* Text is first on mobile, second on desktop */
+    @apply flex flex-col sm:flex-row justify-between mt-4;
+  }
+  .timeline-item-left .timeline-text {
+    /* Aligns text left on mobile, right on desktop */
+    @apply text-left sm:text-right;
+  }
+  .timeline-item-left .timeline-connector-wrap {
+    /* Aligns connector line to the right */
+    @apply sm:justify-end order-first sm:order-last;
+  }
+
+  /* --- Right Column Specifics --- */
+  .timeline-item-right {
+    /* On mobile, shows circle first, then text */
+    @apply flex flex-col;
+  }
+  .timeline-item-right .timeline-circle-wrap {
+    /* Circle is always aligned left */
+    @apply flex justify-start;
+  }
+  .timeline-item-right .timeline-text-wrap {
+    @apply flex flex-col sm:flex-row justify-between mt-4;
+  }
+  .timeline-item-right .timeline-text {
+    /* Text is always aligned left */
+    @apply text-left;
+  }
+  .timeline-item-right .timeline-connector-wrap {
+    /* Aligns connector line to the left */
+    @apply sm:justify-start;
   }
 }

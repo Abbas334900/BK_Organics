@@ -31,51 +31,76 @@ const About = () => {
 
 
             <h1 className='flex flex-col items-center justify-center gradient-title text-2xl font-extrabold sm:text-4xl lg:text-6xl tracking-tight mt-30'>Why US?</h1>
-            <div className='flex shadow-xl rounded-4xl mb-20'>
-                {/* Left Column */}
-                <div className=' w-50 inline-block sm:w-170'>
+            <div className='timeline-container'>
+    {/* Left Column */}
+    <div className='timeline-column-left'>
 
-                    {/* Item 1: Purity */}
-                    <div className='flex justify-end p-10'>
-                        <div className='w-25 h-25 md:w-40 md:h-40 bg-slate-500 rounded-full text-center flex justify-center items-center text-2xl font-bold'>Purity</div>
-                    </div>
-                    <div className='flex justify-between p-10'>
-                        <div className=' w-80 h-30 flex text-right items-center text-xl'>We believe in purity, straight from the source. Every product we offer is crafted using only 100% certified organic ingredients.</div>
-                        <div className=' w-80 h-30 flex justify-end items-center text-xl'>-----------------------</div>
-                    </div>
-
-                    {/* Item 3: Ethical */}
-                    <div className='flex justify-end p-10'>
-                        <div className='w-25 h-25 md:w-40 md:h-40 bg-slate-500 rounded-full text-center flex justify-center items-center text-2xl font-bold'>Ethical</div>
-                    </div>
-                    <div className='flex justify-between p-10'>
-                        <div className=' w-80 h-30 flex text-right items-center text-xl'>We are passionate about protecting our planet. We partner with sustainable farms and ethical, cruelty-free suppliers who share our values.</div>
-                        <div className=' w-80 h-30 flex justify-end items-center text-xl'>-----------------------</div>
-                    </div>
+        {/* Item 1: Purity */}
+        <div>
+            <div className='timeline-left-circle-wrap'>
+                <div className='timeline-circle'>Purity</div>
+            </div>
+            <div className='timeline-left-text-wrap'>
+                <div className='timeline-left-text'>
+                    We believe in purity, straight from the source. Every product we offer is crafted using only 100% certified organic ingredients.
                 </div>
-
-                {/* Right Column */}
-                <div className='w-170 inline-block'>
-
-                    {/* Item 2: Safety */}
-                    <div className='flex justify-between p-10'>
-                        <div className=' w-80 h-30 flex justify-start items-center text-xl'>-----------------------</div>
-                        <div className=' w-80 h-30 flex text-start items-center text-xl'>Your well-being is our top priority. Our products are meticulously formulated to be 100% free from parabens, sulfates, and other harsh chemicals.</div>
-                    </div>
-                    <div className='flex justify-start p-10'>
-                        <div className='w-25 h-25 md:w-40 md:h-40 bg-slate-500 rounded-full text-center flex justify-center items-center text-2xl font-bold'>Safety</div>
-                    </div>
-
-                    {/* Item 4: Effective */}
-                    <div className='flex justify-between p-10'>
-                        <div className=' w-80 h-30 flex justify-start items-center text-xl'>-----------------------</div>
-                        <div className=' w-80 h-30 flex text-start items-center text-xl'>We create products we love ourselves. Each item is produced in small batches to ensure maximum freshness, potency, and real results.</div>
-                    </div>
-                    <div className='flex justify-start p-10'>
-                        <div className='w-25 h-25 md:w-40 md:h-40 bg-slate-500 rounded-full text-center flex justify-center items-center text-2xl font-bold'>Effective</div>
-                    </div>
+                <div className='timeline-left-connector'>
+                    <div className="timeline-connector-line"></div>
                 </div>
             </div>
+        </div>
+
+        {/* Item 3: Ethical */}
+        <div>
+            <div className='timeline-left-circle-wrap'>
+                <div className='timeline-circle'>Ethical</div>
+            </div>
+            <div className='timeline-left-text-wrap'>
+                <div className='timeline-left-text'>
+                    We are passionate about protecting our planet. We partner with sustainable farms and ethical, cruelty-free suppliers who share our values.
+                </div>
+                <div className='timeline-left-connector'>
+                    <div className="timeline-connector-line"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {/* Right Column */}
+    <div className='timeline-column-right'>
+
+        {/* Item 2: Safety */}
+        <div className='timeline-right-item'>
+            <div className='timeline-right-circle-wrap'>
+                <div className='timeline-circle'>Safety</div>
+            </div>
+            <div className='timeline-right-text-wrap'>
+                <div className='timeline-right-connector'>
+                    <div className="timeline-connector-line"></div>
+                </div>
+                <div className='timeline-right-text'>
+                    Your well-being is our top priority. Our products are meticulously formulated to be 100% free from parabens, sulfates, and other harsh chemicals.
+                </div>
+            </div>
+        </div>
+
+        {/* Item 4: Effective */}
+        <div className='timeline-right-item'>
+            <div className='timeline-right-circle-wrap'>
+                <div className='timeline-circle'>Effective</div>
+            </div>
+            <div className='timeline-right-text-wrap'>
+                <div className='timeline-right-connector'>
+                    <div className="timeline-connector-line"></div>
+                </div>
+                <div className='timeline-right-text'>
+                    We create products we love ourselves. Each item is produced in small batches to ensure maximum freshness, potency, and real results.
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
 
             {/* Member */}
                 <div className='w-full h-80 flex justify-around items-center rounded-4xl shadow-2xl mt-20'>

@@ -60,5 +60,5 @@ This project is open-source. Feel free to fork it, learn from it, and build upon
 
 ## 👨‍💻 Author
 
-* **Kamil Hassan**
-    * [GitHub](https://github.com/KamilHassan78608)
+* **Abbas Khan**
+    * [GitHub](https://github.com/Abbas334900)

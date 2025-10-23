@@ -31,51 +31,66 @@ const About = () => {
 
 
             <h1 className='flex flex-col items-center justify-center gradient-title text-2xl font-extrabold sm:text-4xl lg:text-6xl tracking-tight mt-30'>Why US?</h1>
-            <div className='flex shadow-xl rounded-4xl mb-20'>
-                {/* Left Column */}
-                <div className=' w-50 inline-block sm:w-170'>
+            <div className="flex flex-col lg:flex-row shadow-xl rounded-3xl mb-20">
+  {/* Left Column */}
+  <div className="w-full lg:w-1/2">
+    {/* Item 1: Purity */}
+    <div className="flex justify-center lg:justify-end p-6">
+      <div className="w-24 h-24 md:w-32 md:h-32 bg-slate-500 rounded-full text-center flex justify-center items-center text-xl md:text-2xl font-bold text-white">
+        Purity
+      </div>
+    </div>
+    <div className="flex flex-col lg:flex-row justify-between p-6">
+      <div className="text-center lg:text-right lg:w-1/2 text-base md:text-lg">
+        We believe in purity, straight from the source. Every product we offer is crafted using only 100% certified organic ingredients.
+      </div>
+      <div className="hidden lg:flex w-1/2 justify-end items-center text-xl">──────────────</div>
+    </div>
 
-                    {/* Item 1: Purity */}
-                    <div className='flex justify-end p-10'>
-                        <div className='w-25 h-25 md:w-40 md:h-40 bg-slate-500 rounded-full text-center flex justify-center items-center text-2xl font-bold'>Purity</div>
-                    </div>
-                    <div className='flex justify-between p-10'>
-                        <div className=' w-80 h-30 flex text-right items-center text-xl'>We believe in purity, straight from the source. Every product we offer is crafted using only 100% certified organic ingredients.</div>
-                        <div className=' w-80 h-30 flex justify-end items-center text-xl'>-----------------------</div>
-                    </div>
+    {/* Item 3: Ethical */}
+    <div className="flex justify-center lg:justify-end p-6">
+      <div className="w-24 h-24 md:w-32 md:h-32 bg-slate-500 rounded-full text-center flex justify-center items-center text-xl md:text-2xl font-bold text-white">
+        Ethical
+      </div>
+    </div>
+    <div className="flex flex-col lg:flex-row justify-between p-6">
+      <div className="text-center lg:text-right lg:w-1/2 text-base md:text-lg">
+        We are passionate about protecting our planet. We partner with sustainable farms and ethical, cruelty-free suppliers who share our values.
+      </div>
+      <div className="hidden lg:flex w-1/2 justify-end items-center text-xl">──────────────</div>
+    </div>
+  </div>
 
-                    {/* Item 3: Ethical */}
-                    <div className='flex justify-end p-10'>
-                        <div className='w-25 h-25 md:w-40 md:h-40 bg-slate-500 rounded-full text-center flex justify-center items-center text-2xl font-bold'>Ethical</div>
-                    </div>
-                    <div className='flex justify-between p-10'>
-                        <div className=' w-80 h-30 flex text-right items-center text-xl'>We are passionate about protecting our planet. We partner with sustainable farms and ethical, cruelty-free suppliers who share our values.</div>
-                        <div className=' w-80 h-30 flex justify-end items-center text-xl'>-----------------------</div>
-                    </div>
-                </div>
+  {/* Right Column */}
+  <div className="w-full lg:w-1/2">
+    {/* Item 2: Safety */}
+    <div className="flex flex-col lg:flex-row justify-between p-6">
+      <div className="hidden lg:flex w-1/2 justify-start items-center text-xl">──────────────</div>
+      <div className="text-center lg:text-left lg:w-1/2 text-base md:text-lg">
+        Your well-being is our top priority. Our products are meticulously formulated to be 100% free from parabens, sulfates, and other harsh chemicals.
+      </div>
+    </div>
+    <div className="flex justify-center lg:justify-start p-6">
+      <div className="w-24 h-24 md:w-32 md:h-32 bg-slate-500 rounded-full text-center flex justify-center items-center text-xl md:text-2xl font-bold text-white">
+        Safety
+      </div>
+    </div>
 
-                {/* Right Column */}
-                <div className='w-170 inline-block'>
+    {/* Item 4: Effective */}
+    <div className="flex flex-col lg:flex-row justify-between p-6">
+      <div className="hidden lg:flex w-1/2 justify-start items-center text-xl">──────────────</div>
+      <div className="text-center lg:text-left lg:w-1/2 text-base md:text-lg">
+        We create products we love ourselves. Each item is produced in small batches to ensure maximum freshness, potency, and real results.
+      </div>
+    </div>
+    <div className="flex justify-center lg:justify-start p-6">
+      <div className="w-24 h-24 md:w-32 md:h-32 bg-slate-500 rounded-full text-center flex justify-center items-center text-xl md:text-2xl font-bold text-white">
+        Effective
+      </div>
+    </div>
+  </div>
+</div>
 
-                    {/* Item 2: Safety */}
-                    <div className='flex justify-between p-10'>
-                        <div className=' w-80 h-30 flex justify-start items-center text-xl'>-----------------------</div>
-                        <div className=' w-80 h-30 flex text-start items-center text-xl'>Your well-being is our top priority. Our products are meticulously formulated to be 100% free from parabens, sulfates, and other harsh chemicals.</div>
-                    </div>
-                    <div className='flex justify-start p-10'>
-                        <div className='w-25 h-25 md:w-40 md:h-40 bg-slate-500 rounded-full text-center flex justify-center items-center text-2xl font-bold'>Safety</div>
-                    </div>
-
-                    {/* Item 4: Effective */}
-                    <div className='flex justify-between p-10'>
-                        <div className=' w-80 h-30 flex justify-start items-center text-xl'>-----------------------</div>
-                        <div className=' w-80 h-30 flex text-start items-center text-xl'>We create products we love ourselves. Each item is produced in small batches to ensure maximum freshness, potency, and real results.</div>
-                    </div>
-                    <div className='flex justify-start p-10'>
-                        <div className='w-25 h-25 md:w-40 md:h-40 bg-slate-500 rounded-full text-center flex justify-center items-center text-2xl font-bold'>Effective</div>
-                    </div>
-                </div>
-            </div>
 
             {/* Member */}
                 <div className='w-full h-80 flex justify-around items-center rounded-4xl shadow-2xl mt-20'>

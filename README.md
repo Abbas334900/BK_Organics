@@ -29,8 +29,8 @@ Make sure you have [Node.js](https://nodejs.org/en/) (version 18.x or higher rec
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/KamilHassan78608/BK_Organics.git](https://github.com/KamilHassan78608/BK_Organics.git)
-    ```
+  git clone [https://github.com/abbas334900/Bk-organic.com.git] 
+  
 
 2.  **Navigate to the project directory:**
     ```bash

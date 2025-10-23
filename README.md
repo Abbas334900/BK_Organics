@@ -61,4 +61,4 @@ This project is open-source. Feel free to fork it, learn from it, and build upon
 ## 👨‍💻 Author
 
 * **Abbas Khan**
-    * [GitHub](https://github.com/Abbas334900)
+  (https://github.com/Abbas334900)

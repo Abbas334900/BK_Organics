@@ -6,6 +6,7 @@ import About from './Routes/About'
 import { RouterProvider } from 'react-router'
 import Products from './Routes/Products'
 import Contact from './Routes/Contact'
+import BuyLayout from './Layout/BuyLayout'
 
 export default function App() {
 
@@ -28,6 +29,10 @@ export default function App() {
         {
           path: '/contact',
           element: <Contact />
+        },
+        {
+          path: '/buy',
+          element: <BuyLayout />
         },
       ]
     }

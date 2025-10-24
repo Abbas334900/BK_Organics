@@ -1,25 +1,34 @@
 import React from 'react'
 import { Button } from './ui/button'
 import { ShoppingBag, ShoppingCart } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
-const Card = () => {
+const Card = ({ product }) => {
+
+  const navigate = useNavigate();
+
+  const title = product?.title ?? 'Organic Honey'
+  const description = product?.description ?? 'Pure, raw, and unfiltered product sourced from local fields.'
+  const price = product?.price ?? '$30.00'
+  const imgSrc = product?.pathImage ? product.pathImage.replace(/^public\//, '/') : '/pic2.png'
+
   return (
-    <div className='max-w-sm rounded-lg pb-10 overflow-hidden shadow-lg bg-white transition-transform duration-900 hover:shadow-xl hover:border-1 hover:border-cyan-700'>
+    <div className='w-100 h-130 relative rounded-lg pb-10 overflow-hidden shadow-lg bg-white transition-transform duration-900 hover:shadow-xl hover:border-1 hover:border-cyan-700'>
       
-      <img src="/pic2.png" alt="Organic Honey Product" className='w-full h-64 object-cover'/>
+      <img src={imgSrc} alt={title} className='w-full h-64 object-cover'/>
 
       <div className='px-6 py-4'>
-        <h2 className='font-bold text-xl mb-2 text-gray-800'>Organic Honey</h2>
+        <h2 className='font-bold text-xl mb-2 text-gray-800'>{title}</h2>
         <p className='text-gray-600 text-base'>
-          Pure, raw, and unfiltered honey sourced from local wildflower fields.
+          {description}
         </p>
         <h2 className='font-semibold text-lg text-gray-900 mt-4'>
-          Price: $30.00
+          Price: {price}
         </h2>
       </div>
 
-      <div className='flex justify-between px-6'>
-        <Button variant="destructive" className="transition-all duration-300 hover:shadow-lg hover:-translate-y-1/12">
+      <div className='absolute bottom-10 flex justify-between gap-30 px-6'>
+        <Button onClick={() => navigate('/buy', { state: { product } })} variant="destructive" className="transition-all duration-300 hover:shadow-lg hover:-translate-y-1/12">
             <span>Buy</span>
             <ShoppingBag />
         </Button>

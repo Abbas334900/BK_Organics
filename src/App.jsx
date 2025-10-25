@@ -8,7 +8,11 @@ import Products from './Routes/Products'
 import Contact from './Routes/Contact'
 import BuyLayout from './Layout/BuyLayout'
 import DashBoared from './Admin_Dashbored/DashBoared'
-import ProductsDashBoared from './Admin_Dashbored/Pages/ProductsDashBoared'
+import TopRanking_Dasbored from './Admin_Dashbored/Pages/TopRanking_Dasbored'
+import Order_DashBoared from './Admin_Dashbored/Pages/Order_DashBoared'
+import Products_Dashboard from './Admin_Dashbored/Pages/Product_DashBoared'
+import Messeges_DashBoared from './Admin_Dashbored/Pages/Messeges_DashBored'
+import User_Dashboared from './Admin_Dashbored/Pages/User_DashBoared'
 
 export default function App() {
 
@@ -42,9 +46,25 @@ export default function App() {
       element: <DashBoared />,
       children: [
         {
-          path: '/adminProduct',
-          element: <ProductsDashBoared />
-        }
+          path: '/admin/Products',
+          element: <Products_Dashboard />
+        },
+        {
+          path: '/admin/TopRanking',
+          element: <TopRanking_Dasbored />
+        },
+        {
+          path: '/admin/Orders',
+          element: <Order_DashBoared />
+        },
+        {
+          path: '/admin/Messeges',
+          element: <Messeges_DashBoared />
+        },
+        {
+          path: '/admin/User',
+          element: <User_Dashboared />
+        },
       ]
     }
     

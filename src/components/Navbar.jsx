@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Button } from "./ui/button"
-import { Menu, X } from "lucide-react"
+import { Menu, ShoppingBagIcon, X } from "lucide-react"
 import { Link } from "react-router-dom"
 import { SignedIn, SignedOut, SignInButton, SignIn, UserButton, SignUp } from '@clerk/clerk-react'
 
@@ -33,7 +33,11 @@ const Navbar = () => {
                             <Button variant="outline" onClick={() => setShowSignin(true)}>Login</Button>
                         </SignedOut>
                         <SignedIn>
-                            <UserButton />
+                            <UserButton>
+                                <UserButton.MenuItems>
+                                    <UserButton.Link label="All Product" labelIcon={<ShoppingBagIcon size={15} />} href="/products"/>
+                                </UserButton.MenuItems>
+                            </UserButton>
                         </SignedIn>
                     </div>
                     <Button variant="ghost" className="md:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} >

@@ -7,6 +7,8 @@ import { RouterProvider } from 'react-router'
 import Products from './Routes/Products'
 import Contact from './Routes/Contact'
 import BuyLayout from './Layout/BuyLayout'
+import DashBoared from './Admin_Dashbored/DashBoared'
+import ProductsDashBoared from './Admin_Dashbored/Pages/ProductsDashBoared'
 
 export default function App() {
 
@@ -35,7 +37,17 @@ export default function App() {
           element: <BuyLayout />
         },
       ]
+    },
+    {
+      element: <DashBoared />,
+      children: [
+        {
+          path: '/adminProduct',
+          element: <ProductsDashBoared />
+        }
+      ]
     }
+    
   ])
 
   return (

@@ -13,22 +13,22 @@ const BuyLayout = () => {
     const quantities = [1, 2, 3, 5, 10]; // Example quantities
 
     const location = useLocation()
-const navigate = useNavigate()
-const product = location.state?.product
+    const navigate = useNavigate()
+    const product = location.state?.product
 
     const handleCancel = (e) => {
-    if (e.target === e.currentTarget) {
-        setDisplay(false)
-        navigate('/products')  // Add this line to navigate back
+        if (e.target === e.currentTarget) {
+            setDisplay(false)
+            navigate('/products')
+        }
     }
-}
 
 
 
     return (
         <>
             {
-                display && <div className="fixed inset-0 z-20 bg-black/30 backdrop-blur-sm flex items-center justify-center p-4" onClick={handleCancel}>
+                display && <div className="fixed inset-0 z-20 bg-black/30 backdrop-blur-xl flex items-center justify-center p-4" onClick={handleCancel}>
 
                     {/* --- 2. Centered Content Card --- */}
                     {/* This is the white card with the product info */}

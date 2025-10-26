@@ -14,12 +14,11 @@ const UserDashboard = () => {
             try {
                 const token = await getToken();
 
-                // Make an authenticated request to your Express backend
-const response = await fetch('http://localhost:3000/api/admin/users', { 
-    headers: {
-        'Authorization': `Bearer ${token}`
-    },
-});
+                const response = await fetch('http://localhost:3000/api/admin/users', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    },
+                });
 
                 if (!response.ok) {
                     const err = await response.json();
@@ -27,7 +26,10 @@ const response = await fetch('http://localhost:3000/api/admin/users', {
                 }
 
                 const data = await response.json();
-                setUsers(data);
+                console.log("Fetched Clerk data:", data);
+
+                // ✅ FIX: use Clerk’s 'data' property
+                setUsers(Array.isArray(data) ? data : data.data || []);
             } catch (err) {
                 setError(err.message);
             } finally {
@@ -36,7 +38,7 @@ const response = await fetch('http://localhost:3000/api/admin/users', {
         };
 
         fetchUsers();
-    }, [getToken]); // Dependency array
+    }, [getToken]);
 
 
     if (isLoading) {
@@ -62,7 +64,6 @@ const response = await fetch('http://localhost:3000/api/admin/users', {
                                 <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
                                 <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Phone Number</th>
                                 <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Organization</th>
-                                <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
                             </tr>
                         </thead>
 
@@ -87,18 +88,6 @@ const response = await fetch('http://localhost:3000/api/admin/users', {
                                         </td>
                                         <td className="px-6 py-4 text-sm text-gray-500">
                                             {user.publicMetadata?.organization || 'N/A'}
-                                        </td>
-                                        <td className="px-6 py-4 whitespace-nowrap">
-                                            <div className="flex items-center gap-2">
-                                                <Button variant="outline" size="icon">
-                                                    <Pencil className="h-4 w-4" />
-                                                    <span className="sr-only">Edit</span>
-                                                </Button>
-                                                <Button variant="destructive" size="icon">
-                                                    <Trash2 className="h-4 w-4" />
-                                                    <span className="sr-only">Delete</span>
-                                                </Button>
-                                            </div>
                                         </td>
                                     </tr>
                                 ))

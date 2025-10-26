@@ -18,7 +18,6 @@ const Dashboard = () => {
   // 2. Navigation items array (cleaner to manage)
   const navLinks = [
     { to: '/admin/Products', text: 'All Products', icon: <Package size={20} /> },
-    { to: '/admin/TopRanking', text: 'Top Rating', icon: <Star size={20} /> },
     { to: '/admin/Orders', text: 'Orders', icon: <ShoppingCart size={20} /> },
     { to: '/admin/Messeges', text: 'Messages', icon: <MessageSquare size={20} /> },
     { to: '/admin/User', text: 'Users', icon: <Users size={20} /> },

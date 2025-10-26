@@ -8,7 +8,6 @@ import Products from './Routes/Products'
 import Contact from './Routes/Contact'
 import BuyLayout from './Layout/BuyLayout'
 import DashBoared from './Admin_Dashbored/DashBoared'
-import TopRanking_Dasbored from './Admin_Dashbored/Pages/TopRanking_Dasbored'
 import Order_DashBoared from './Admin_Dashbored/Pages/Order_DashBoared'
 import Products_Dashboard from './Admin_Dashbored/Pages/Product_DashBoared'
 import Messeges_DashBoared from './Admin_Dashbored/Pages/Messeges_DashBored'
@@ -49,10 +48,6 @@ export default function App() {
         {
           path: '/admin/Products',
           element: <Products_Dashboard />
-        },
-        {
-          path: '/admin/TopRanking',
-          element: <TopRanking_Dasbored />
         },
         {
           path: '/admin/Orders',

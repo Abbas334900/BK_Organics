@@ -1,85 +1,82 @@
-import React from 'react';
-// 1. Import Button and icons
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Pencil, Trash2 } from 'lucide-react';
 
-// Corrected component name (Dashboard)
 const Order_Dashboard = () => {
+  // 1. Remove static data, add state for orders, loading, and errors
+  const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // 2. Add useEffect to fetch data when the component loads
+  useEffect(() => {
+    const fetchOrders = async () => {
+      try {
+        // This is the API endpoint you just confirmed
+        const response = await fetch('http://localhost:3000/api/orders/all');
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        setOrders(data);
+      } catch (e) {
+        setError(e.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchOrders();
+  }, []); // Empty array means this runs once on mount
+
+  // 3. Add a function to handle deleting an order
+  const handleDelete = async (id) => {
+    if (!window.confirm('Are you sure you want to delete this order?')) {
+      return;
+    }
+    try {
+      const response = await fetch(`http://localhost:3000/api/orders/order/${id}`, {
+        method: 'DELETE',
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to delete order');
+      }
+
+      // If successful, remove the order from the state
+      setOrders(prevOrders => prevOrders.filter(order => order._id !== id));
+      
+    } catch (e) {
+      setError(e.message); // Show error to user
+    }
+  };
   
-  // Sample data for the table
-  const orders = [
-    {
-      id: 'ORD-001',
-      firstName: 'John',
-      lastName: 'Doe',
-      email: 'john.doe@example.com',
-      contact: '123-456-7890',
-      address: '123 Main St, Anytown, USA 12345',
-      productName: 'The Complete React Guide',
-      productId: 'PROD-1024',
-    },
-    {
-      id: 'ORD-002',
-      firstName: 'Jane',
-      lastName: 'Smith',
-      email: 'jane.smith@email.com',
-      contact: '987-654-3210',
-      address: '456 Oak Ave, Sometown, USA 54321',
-      productName: 'Tailwind CSS Fundamentals',
-      productId: 'PROD-1025',
-    },
-    {
-      id: 'ORD-003',
-      firstName: 'Mike',
-      lastName: 'Johnson',
-      email: 'mike.j@web.com',
-      contact: '555-123-4567',
-      address: '789 Pine Rd, Othercity, USA 67890',
-      productName: 'JavaScript Algorithms',
-      productId: 'PROD-1026',
-    },
-    {
-      id: 'ORD-004',
-      firstName: 'Emily',
-      lastName: 'Davis',
-      email: 'em.davis@mail.io',
-      contact: '555-987-6543',
-      address: '101 Maple Ln, Newville, USA 10101',
-      productName: 'Next.js for Beginners',
-      productId: 'PROD-1027',
-    },
-  ];
+  // 4. Add loading and error states
+  if (loading) {
+    return <div className="p-6">Loading orders...</div>;
+  }
+
+  if (error) {
+    return <div className="p-6 text-red-600">Error: {error}</div>;
+  }
 
   return (
-    // 2. Removed outer padding/min-h-screen to fit in <Outlet />
     <>
       <h2 className="text-3xl font-bold mb-6 text-gray-800">Order Dashboard</h2>
       
-      {/* 3. Added border for a clean card look */}
       <div className="shadow-lg rounded-lg overflow-hidden border border-gray-200">
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200">
             
-            {/* 4. Replaced heavy header with a light, standard one */}
             <thead className="bg-gray-50">
               <tr>
+                {/* 5. Updated columns to match your Order schema */}
                 <th
                   scope="col"
                   className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                 >
-                  First Name
-                </th>
-                <th
-                  scope="col"
-                  className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                >
-                  Last Name
-                </th>
-                <th
-                  scope="col"
-                  className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                >
-                  Email Address
+                  Customer Name
                 </th>
                 <th
                   scope="col"
@@ -97,15 +94,26 @@ const Order_Dashboard = () => {
                   scope="col"
                   className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                 >
-                  Product Name
+                  Product
                 </th>
                 <th
                   scope="col"
                   className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                 >
-                  Product ID
+                  Qty
                 </th>
-                {/* 5. Added Actions column */}
+                <th
+                  scope="col"
+                  className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
+                  Payment
+                </th>
+                 <th
+                  scope="col"
+                  className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
+                  Status
+                </th>
                 <th
                   scope="col"
                   className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
@@ -116,44 +124,45 @@ const Order_Dashboard = () => {
             </thead>
             
             <tbody className="bg-white divide-y divide-gray-200">
+              {/* 6. Map over 'orders' from state */}
               {orders.map((order) => (
-                <tr key={order.id} className="hover:bg-gray-50">
+                <tr key={order._id} className="hover:bg-gray-50">
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                    {order.firstName}
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                    {order.lastName}
+                    {order.customerName}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    {order.email}
+                    {order.customerContact}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    {order.contact}
-                  </td>
-                  {/* 6. Added max-w-xs to allow wrapping */}
                   <td className="px-6 py-4 text-sm text-gray-500 max-w-xs">
-                    {order.address}
+                    {order.customerAddress}
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-900 max-w-xs">
                     {order.productName}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    {order.productId}
+                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    {order.quantity}
                   </td>
-                  {/* 7. Added Actions cell */}
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    {order.paymentMethod}
+                  </td>
+                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    {/* Add styling for status */}
+                    <span className={`px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${
+                      order.orderStatus === 'Pending' ? 'bg-yellow-100 text-yellow-800' :
+                      order.orderStatus === 'Shipped' ? 'bg-blue-100 text-blue-800' :
+                      'bg-green-100 text-green-800' // 'Delivered'
+                    }`}>
+                      {order.orderStatus}
+                    </span>
+                  </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="flex items-center gap-2">
-                      <Button
-                        variant="outline"
-                        size="icon"
-                      >
-                        <Pencil className="h-4 w-4" />
-                        <span className="sr-only">Edit</span>
-                      </Button>
 
+                      {/* 7. Hook up the delete button */}
                       <Button
                         variant="destructive"
                         size="icon"
+                        onClick={() => handleDelete(order._id)}
                       >
                         <Trash2 className="h-4 w-4" />
                         <span className="sr-only">Delete</span>

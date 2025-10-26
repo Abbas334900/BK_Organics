@@ -59,12 +59,6 @@ const Dashboard = () => {
             ))}
           </ul>
 
-          <div className="absolute bottom-30">
-            <Button variant="outline" className="h-16 w-55 px-8 text-2xl" >
-              Edit Admin
-            </Button>
-          </div>
-
         </nav>
 
         {/* --- Content Area --- */}

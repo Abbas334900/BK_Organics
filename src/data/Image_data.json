@@ -5,7 +5,7 @@
     "description": "Pure, unfiltered honey sourced from local wildflower fields. Rich in antioxidants and natural enzymes.",
     "price": "30.00",
     "category": "Honey Products",
-    "pathImage": "public/pic1.png"
+  "pathImage": "/pic1.png"
   },
   {
     "Id": 2,
@@ -13,7 +13,7 @@
     "description": "Extra virgin olive oil made from organically grown olives. Perfect for cooking and dressing.",
     "price": "25.99",
     "category": "Oils",
-    "pathImage": "public/pic2.png"
+  "pathImage": "/pic2.png"
   },
   {
     "Id": 3,
@@ -21,7 +21,7 @@
     "description": "Virgin coconut oil extracted from fresh organic coconuts. Ideal for cooking and skincare.",
     "price": "28.50",
     "category": "Oils",
-    "pathImage": "public/pic3.png"
+  "pathImage": "/pic3.png"
   },
   {
     "Id": 4,
@@ -29,7 +29,7 @@
     "description": "Pure green tea extract packed with antioxidants. Supports immunity and natural wellness.",
     "price": "22.99",
     "category": "Supplements",
-    "pathImage": "public/pic4.png"
+  "pathImage": "/pic4.png"
   },
   {
     "Id": 5,
@@ -37,7 +37,7 @@
     "description": "Premium grade Manuka honey known for its unique antibacterial properties.",
     "price": "45.00",
     "category": "Honey Products",
-    "pathImage": "public/pic5.png"
+  "pathImage": "/pic5.png"
   },
   {
     "Id": 6,
@@ -45,7 +45,7 @@
     "description": "Pure avocado oil rich in healthy fats. Great for high-heat cooking and beauty care.",
     "price": "27.99",
     "category": "Oils",
-    "pathImage": "public/pic6.png"
+  "pathImage": "/pic6.png"
   },
   {
     "Id": 7,
@@ -53,7 +53,7 @@
     "description": "Cold-pressed hemp seed oil rich in omega fatty acids. Perfect for salad dressings.",
     "price": "32.50",
     "category": "Oils",
-    "pathImage": "public/pic7.png"
+  "pathImage": "/pic7.png"
   },
   {
     "Id": 8,
@@ -61,7 +61,7 @@
     "description": "Pure aloe vera extract for natural skincare and digestive health support.",
     "price": "19.99",
     "category": "Supplements",
-    "pathImage": "public/pic8.png"
+  "pathImage": "/pic8.png"
   },
   {
     "Id": 9,
@@ -69,7 +69,7 @@
     "description": "Light and delicate honey from acacia flowers. Perfect for tea and baking.",
     "price": "28.00",
     "category": "Honey Products",
-    "pathImage": "public/pic9.png"
+  "pathImage": "/pic9.png"
   },
   {
     "Id": 10,
@@ -77,7 +77,7 @@
     "description": "Traditional black seed oil known for its immune-supporting properties.",
     "price": "34.99",
     "category": "Oils",
-    "pathImage": "public/pic10.png"
+  "pathImage": "/pic10.png"
   },
   {
     "Id": 11,
@@ -85,7 +85,7 @@
     "description": "Concentrated turmeric extract with enhanced bioavailability for maximum benefits.",
     "price": "26.50",
     "category": "Supplements",
-    "pathImage": "public/pic11.png"
+  "pathImage": "/pic11.png"
   },
   {
     "Id": 12,
@@ -93,6 +93,6 @@
     "description": "Organic moringa leaf powder. Rich in nutrients and natural antioxidants.",
     "price": "24.99",
     "category": "Supplements",
-    "pathImage": "public/pic12.png"
+  "pathImage": "/pic12.png"
   }
 ]

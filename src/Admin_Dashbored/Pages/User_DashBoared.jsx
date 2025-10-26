@@ -15,7 +15,6 @@ const UserDashboard = () => {
                 const token = await getToken();
 
                 // Make an authenticated request to your Express backend
-                // In UserDashboard.jsx
 const response = await fetch('http://localhost:3000/api/admin/users', { 
     headers: {
         'Authorization': `Bearer ${token}`

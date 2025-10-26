@@ -9,7 +9,7 @@ const products = [
     "description": "Pure, unfiltered honey sourced from local wildflower fields. Rich in antioxidants and natural enzymes.",
     "price": 30.00,
     "category": "Honey Products",
-    "imageUrl": "/public/pic1.png"
+    "imageUrl": "/pic1.png"
   },
   {
     "id": 2,
@@ -17,7 +17,7 @@ const products = [
     "description": "Extra virgin olive oil made from organically grown olives. Perfect for cooking and dressing.",
     "price": 25.99,
     "category": "Oils",
-    "imageUrl": "/public/pic2.png"
+    "imageUrl": "/pic2.png"
   },
   {
     "id": 3,
@@ -25,7 +25,7 @@ const products = [
     "description": "Virgin coconut oil extracted from fresh organic coconuts. Ideal for cooking and skincare.",
     "price": 28.50,
     "category": "Oils",
-    "imageUrl": "/public/pic3.png"
+    "imageUrl": "/pic3.png"
   },
   {
     "id": 101,
@@ -33,7 +33,7 @@ const products = [
     "description": "Pure, cold-pressed virgin coconut oil. Ideal for cooking and skincare.",
     "price": 22.50,
     "category": "Oil",
-    "imageUrl": "/public/pic4.png"
+    "imageUrl": "/pic4.png"
   },
   {
     "id": 102,
@@ -41,7 +41,7 @@ const products = [
     "description": "Unprocessed wildflower honey, harvested locally. Rich in antioxidants.",
     "price": 15.00,
     "category": "Sweetener",
-    "imageUrl": "/public/pic5.png"
+    "imageUrl": "/pic5.png"
   },
   {
     "id": 103,
@@ -49,7 +49,7 @@ const products = [
     "description": "Baked fresh daily with organic whole wheat flour. No preservatives.",
     "price": 8.75,
     "category": "Bakery",
-    "imageUrl": "/public/pic6.png"
+    "imageUrl": "/pic6.png"
   },
   {
     "id": 104,
@@ -57,7 +57,7 @@ const products = [
     "description": "Single-origin Arabica beans, medium roast. Ethically sourced.",
     "price": 18.20,
     "category": "Beverage",
-    "imageUrl": "/public/pic7.png"
+  "imageUrl": "/pic7.png"
   },
   {
     "id": 105,
@@ -65,7 +65,7 @@ const products = [
     "description": "A curated box of 20 assorted organic herbal teas. Caffeine-free.",
     "price": 12.00,
     "category": "Beverage",
-    "imageUrl": "/public/pic8.png"
+  "imageUrl": "/pic8.png"
   }
 ];
 

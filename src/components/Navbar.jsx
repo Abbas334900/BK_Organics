@@ -7,7 +7,7 @@ import { SignedIn, SignedOut, SignInButton, SignIn, UserButton, SignUp } from '@
 
 const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [showSignin, setShowSignin] = useState(false)
+    const [showSignin, setShowSignin] = useState(false);
 
     const handleOverlayClick = () => {
         if (e.target === e.currentTarget) {

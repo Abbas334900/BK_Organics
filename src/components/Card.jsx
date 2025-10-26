@@ -1,10 +1,9 @@
 import React from 'react'
 import { Button } from './ui/button'
-import { ShoppingBag, ShoppingCart } from 'lucide-react'
+import { ShoppingBag } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
 const Card = ({ product }) => {
-
   const navigate = useNavigate();
 
   const title = product?.title ?? 'Organic Honey'
@@ -27,14 +26,10 @@ const Card = ({ product }) => {
         </h2>
       </div>
 
-      <div className='absolute bottom-10 flex justify-between gap-30 px-6'>
+      <div className='absolute bottom-10 px-6'>
         <Button onClick={() => navigate('/buy', { state: { product } })} variant="destructive" className="transition-all duration-300 hover:shadow-lg hover:-translate-y-1/12">
             <span>Buy</span>
             <ShoppingBag />
-        </Button>
-        <Button variant="outline" className="transition-all duration-300 hover:shadow-lg hover:-translate-y-1/12">
-            <span>Add to Cart</span>
-            <ShoppingCart />
         </Button>
       </div>
     </div> 

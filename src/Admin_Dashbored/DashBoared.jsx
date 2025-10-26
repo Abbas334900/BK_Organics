@@ -22,6 +22,7 @@ const Dashboard = () => {
     { to: '/admin/Orders', text: 'Orders', icon: <ShoppingCart size={20} /> },
     { to: '/admin/Messeges', text: 'Messages', icon: <MessageSquare size={20} /> },
     { to: '/admin/User', text: 'Users', icon: <Users size={20} /> },
+    { to: '/admin/AddProduct', text: 'Add Products', icon: <Package size={20} /> },
   ];
 
   // 3. Helper function for NavLink className

@@ -13,6 +13,7 @@ import Order_DashBoared from './Admin_Dashbored/Pages/Order_DashBoared'
 import Products_Dashboard from './Admin_Dashbored/Pages/Product_DashBoared'
 import Messeges_DashBoared from './Admin_Dashbored/Pages/Messeges_DashBored'
 import User_Dashboared from './Admin_Dashbored/Pages/User_DashBoared'
+import AddProductForm from './Admin_Dashbored/Pages/AddProductForm'
 
 export default function App() {
 
@@ -65,6 +66,10 @@ export default function App() {
           path: '/admin/User',
           element: <User_Dashboared />
         },
+        {
+          path: '/admin/AddProduct',
+          element: <AddProductForm />
+        }
       ]
     }
     

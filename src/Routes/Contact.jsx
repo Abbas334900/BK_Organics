@@ -9,18 +9,22 @@ import {
     Leaf,      // Icon for BK Organics logo
     Mail
 } from 'lucide-react';
-import { href } from 'react-router-dom';
+// This import seems incorrect for a React component, removing it.
+// import { href } from 'react-router-dom'; 
 
 const Contact = () => {
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
-        company: '', // Changed from Company to Organization for a more general fit for BKO
+        company: '', 
         email: '',
         phoneNumber: '',
         message: '',
         agreedToPrivacy: false,
     });
+    // Add loading/error states
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitError, setSubmitError] = useState(null);
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -30,21 +34,57 @@ const Contact = () => {
         }));
     };
 
-    const handleSubmit = (e) => {
+    // --- UPDATED handleSubmit FUNCTION ---
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Form submitted:', formData);
-        // In a real application, you would send this data to a backend server
-        alert('Thank you for your message! We will get back to you soon.');
-        // Optionally reset form
-        setFormData({
-            firstName: '',
-            lastName: '',
-            company: '',
-            email: '',
-            phoneNumber: '',
-            message: '',
-            agreedToPrivacy: false,
-        });
+        
+        // Don't submit if already submitting
+        if (isSubmitting) return; 
+
+        setIsSubmitting(true);
+        setSubmitError(null);
+
+        try {
+            // Send the form data to your backend
+            const response = await fetch('http://localhost:3000/api/contact/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (!response.ok) {
+                // Handle server-side validation errors or other issues
+                const errorData = await response.json();
+                throw new Error(errorData.message || 'Failed to submit form.');
+            }
+
+            // If successful:
+            const result = await response.json();
+            console.log('Form submitted successfully:', result);
+            alert('Thank you for your message! We will get back to you soon.');
+
+            // Reset form
+            setFormData({
+                firstName: '',
+                lastName: '',
+                company: '',
+                email: '',
+                phoneNumber: '',
+                message: '',
+                agreedToPrivacy: false,
+            });
+
+        } catch (error) {
+            // Show error to the user
+            console.error('Submission error:', error);
+            setSubmitError(error.message);
+            alert(`There was an error submitting your form: ${error.message}`);
+        } finally {
+            // Re-enable the submit button
+            setIsSubmitting(false);
+        }
     };
 
     // Social links
@@ -92,6 +132,7 @@ const Contact = () => {
                                     onChange={handleChange}
                                     className="py-3 px-4 block w-full shadow-sm focus:ring-gray-500 focus:border-gray-500 border-gray-300 rounded-md"
                                     required
+                                    disabled={isSubmitting}
                                 />
                             </div>
                         </div>
@@ -111,6 +152,7 @@ const Contact = () => {
                                     onChange={handleChange}
                                     className="py-3 px-4 block w-full shadow-sm focus:ring-gray-500 focus:border-gray-500 border-gray-300 rounded-md"
                                     required
+                                    disabled={isSubmitting}
                                 />
                             </div>
                         </div>
@@ -129,6 +171,7 @@ const Contact = () => {
                                     value={formData.company}
                                     onChange={handleChange}
                                     className="py-3 px-4 block w-full shadow-sm focus:ring-gray-500 focus:border-gray-500 border-gray-300 rounded-md"
+                                    disabled={isSubmitting}
                                 />
                             </div>
                         </div>
@@ -148,6 +191,7 @@ const Contact = () => {
                                     onChange={handleChange}
                                     className="py-3 px-4 block w-full shadow-sm focus:ring-gray-500 focus:border-gray-500 border-gray-300 rounded-md"
                                     required
+                                    disabled={isSubmitting}
                                 />
                             </div>
                         </div>
@@ -166,6 +210,7 @@ const Contact = () => {
                                         id="countryCode"
                                         name="countryCode"
                                         className="h-full py-0 pl-4 pr-1 border-transparent bg-transparent text-gray-500 focus:ring-gray-500 focus:border-gray-500 rounded-md"
+                                        disabled={isSubmitting}
                                     >
                                         <option>Pak</option>
                                         <option>Ind</option>
@@ -181,6 +226,7 @@ const Contact = () => {
                                     onChange={handleChange}
                                     className="py-3 px-4 block w-full pl-20 focus:ring-gray-500 focus:border-gray-500 border-gray-300 rounded-md"
                                     placeholder="03XX-XXXXXXX"
+                                    disabled={isSubmitting}
                                 />
                             </div>
                         </div>
@@ -199,6 +245,7 @@ const Contact = () => {
                                     onChange={handleChange}
                                     className="py-3 px-4 block w-full shadow-sm focus:ring-gray-500 focus:border-gray-500 border border-gray-300 rounded-md"
                                     required
+                                    disabled={isSubmitting}
                                 ></textarea>
                             </div>
                         </div>
@@ -214,6 +261,7 @@ const Contact = () => {
                                     onChange={handleChange}
                                     className="h-4 w-4 text-gray-600 focus:ring-gray-500 border-gray-300 rounded"
                                     required
+                                    disabled={isSubmitting}
                                 />
                                 <label htmlFor="agreedToPrivacy" className="ml-2 block text-sm text-gray-900">
                                     By selecting this, you agree to our{' '}
@@ -229,11 +277,19 @@ const Contact = () => {
                         <div className="sm:col-span-2">
                             <button
                                 type="submit"
-                                className="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-700 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+                                className="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-700 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 disabled:opacity-50"
+                                disabled={isSubmitting} // Disable button while submitting
                             >
-                                Let's Talk Organics
+                                {isSubmitting ? 'Submitting...' : "Let's Talk Organics"}
                             </button>
                         </div>
+
+                        {/* Display error message if submission fails */}
+                        {submitError && (
+                            <div className="sm:col-span-2 text-center text-red-600">
+                                {submitError}
+                            </div>
+                        )}
 
                         <div className="border-t border-gray-200 pt-8 flex flex-col-reverse sm:flex-row justify-between items-center">
                             <div className="flex space-x-8 md:space-x-20 sm:space-x-20">
@@ -256,3 +312,4 @@ const Contact = () => {
 };
 
 export default Contact;
+

@@ -1,64 +1,82 @@
-# BK Organics Website
+BK Organics Website
+About BK Organics
 
-This is the official company website for BK Organics, a brand focused on pure, safe, and effective organic products. This repository contains the source code for the modern, responsive landing page built with React and Tailwind CSS.
+BK Organics is a natural products brand that believes in purity, sustainability, and wellness.
+We provide 100% organic and chemical-free products like honey, mustard oil, gurr, and more — made to promote a healthier lifestyle through nature’s best ingredients.
 
-## ✨ Features
+This repository contains the source code for the official BK Organics website, built with React and Tailwind CSS to ensure a smooth, modern, and responsive user experience.
 
-* **Fully Responsive Design:** The layout adapts perfectly from small mobile screens to large desktop monitors.
-* **Clean & Modern UI:** A professional, light-mode design using a clean white, gray, and natural green color palette.
-* **"Why Us" Timeline:** A unique, alternating timeline component to showcase company values (Purity, Safety, Ethical, Effective).
-* **Functional Contact Form:** A complete, validated contact form component for customer inquiries.
-* **Detailed Footer:** A comprehensive, multi-column footer with navigation, newsletter signup, and social media links.
+✨ Features
 
-## 🛠️ Tech Stack
+Fully Responsive Design: Adapts beautifully across all devices, from mobile to desktop.
 
-* **Frontend:** [React.js](https://reactjs.org/)
-* **Styling:** [Tailwind CSS](https://tailwindcss.com/)
-* **Icons:** [Lucide React](https://lucide.dev/)
-* **Build Tool:** [Vite](https://vitejs.dev/) (or Create React App)
+Clean & Modern UI: A light, nature-inspired design using white, gray, and green tones.
 
-## ⚡ Getting Started
+“Why Us” Timeline: Highlights company values — Purity, Safety, Ethics, and Effectiveness.
 
-Follow these instructions to get a local copy up and running on your machine.
+Functional Contact Form: With validation and smooth form handling.
 
-### Prerequisites
+Comprehensive Footer: Includes navigation links, newsletter signup, and social handles.
 
-Make sure you have [Node.js](https://nodejs.org/en/) (version 18.x or higher recommended) and npm/yarn installed on your system.
+🛠️ Tech Stack
 
-### Installation
+Frontend: React.js
 
-1.  **Clone the repository:**
-    ```bash
-    git clone [https://github.com/KamilHassan78608/BK_Organics.git](https://github.com/KamilHassan78608/BK_Organics.git)
-    ```
+Styling: Tailwind CSS
 
-2.  **Navigate to the project directory:**
-    ```bash
-    cd BK_Organics
-    ```
+Icons: Lucide React
 
-3.  **Install the dependencies:**
-    ```bash
-    npm install
-    ```
-    *(or `yarn install` if you prefer yarn)*
+Build Tool: Vite
 
-### Running the Project
+⚡ Getting Started
 
-1.  **Start the development server:**
-    ```bash
-    npm run dev
-    ```
-    *(Note: If you used Create React App, this command will be `npm start`)*
+Follow these steps to set up and run the project locally.
 
-2.  **Open your browser:**
-    Open [http://localhost:5173](http://localhost:5173) (or the address shown in your terminal) to view the website.
+Prerequisites
 
-## 📜 License
+Make sure you have Node.js
+ (version 18.x or higher) and npm or yarn installed.
 
-This project is open-source. Feel free to fork it, learn from it, and build upon it.
+Installation
 
-## 👨‍💻 Author
+Clone the repository:
 
-* **Kamil Hassan**
-    * [GitHub](https://github.com/KamilHassan78608)
+git clone https://github.com/Abbas334900/BK_Organics.git
+
+
+Navigate into the project directory:
+
+cd BK_Organics
+
+
+Install dependencies:
+
+npm install
+
+
+(or yarn install if you prefer Yarn)
+
+Run the Project
+
+Start the development server:
+
+npm run dev
+
+
+(If created with Create React App, use npm start)
+
+Open your browser and visit:
+
+http://localhost:5173
+
+
+(or the URL shown in your terminal)
+
+📜 License
+
+This project is open-source. You’re free to fork, learn, and build upon it.
+
+👨‍💻 Author
+
+Abbas Khan
+GitHub: https://github.com/Abbas334900
